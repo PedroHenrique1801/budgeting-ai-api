@@ -1,28 +1,29 @@
-#  Budgeting AI API
+# Budgeting AI API
 
-Uma API RESTful de gestão financeira pessoal que utiliza Inteligência Artificial para processar áudios, extrair informações de gastos e categorizar transações automaticamente.
+Sistema de controle financeiro fundamentado em Clean Architecture, utilizando Inteligência Artificial para processamento de linguagem natural e RAG (Retrieval-Augmented Generation).
 
-Este é o meu projeto base de Engenharia de Software, desenvolvido para aplicar conceitos de back-end, integração com IA e conteinerização.
+## Arquitetura
+A aplicação aplica os princípios de Clean Architecture para garantir o desacoplamento e o isolamento das regras de negócio:
+* **Domain:** Entidades centrais e enums de domínio.
+* **Application:** Casos de Uso (Use Cases) totalmente isolados de frameworks web e bancos de dados.
+* **Infrastructure:** Controladores HTTP REST, integrações com APIs externas (OpenAI) e persistência de dados.
 
-## Tecnologias Utilizadas
-* **Java 25**
-* **Spring Boot** (Estrutura da API REST)
-* **Spring AI & OpenAI (Whisper / GPT)** (Transcrição e processamento de linguagem natural)
-* **MySQL** (Banco de dados relacional)
-* **Docker & Docker Compose** (Gerenciamento da infraestrutura de dados)
+## Stack Tecnológico
+* **Core:** Java 25, Spring Boot 3+
+* **Inteligência Artificial:** Spring AI (Integração com modelos OpenAI Whisper, GPT e Text-to-Speech)
+* **Persistência:** MySQL 9.6, Spring Data JPA, Hibernate
+* **Infraestrutura:** Docker (Spring Boot Docker Compose)
+* **Interface (Client):** HTML5, CSS3, JavaScript e Chart.js
 
-## Como Funciona
-O sistema recebe um arquivo de áudio (ex: *"Gastei 60 reais abastecendo a moto"*), utiliza modelos da OpenAI para transcrever a fala, interpreta a intenção do usuário, extrai o valor e a categoria correta (`AUTO`, `GROCERIES`, ou `PHARMA`) e persiste a transação no banco de dados, retornando uma confirmação em áudio.
+## Quick Start
+O ambiente de banco de dados é orquestrado de forma transparente via Docker Compose integrado nativamente ao Spring Boot.
 
-## Próximos Passos (Em Desenvolvimento)
-O projeto está em evolução contínua. As próximas atualizações incluem:
-* Desenvolvimento de uma interface web responsiva utilizando HTML semântico e CSS (Flexbox/Grid) para consumo da API.
-* Exibição de dashboards e gráficos de gastos por categoria.
-* Tratamento avançado de exceções customizadas.
+1. Configure sua chave de API no arquivo `application.properties`:
+   `spring.ai.openai.api-key=SUA_CHAVE_AQUI`
 
-## Como rodar localmente
-1. Certifique-se de ter o Docker e o Java instalados.
-2. Clone o repositório.
-3. Configure a sua chave da OpenAI nas variáveis de ambiente.
-4. Suba o banco de dados com `docker-compose up -d`.
-5. Execute a aplicação via IntelliJ ou terminal.
+2. Certifique-se de que o Docker Desktop está em execução.
+
+3. Execute a aplicação (a imagem do MySQL será baixada e instanciada automaticamente):
+   `./gradlew bootRun`
+
+A interface do painel administrativo e os endpoints estarão disponíveis em `http://localhost:8080`.
