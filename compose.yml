@@ -12,9 +12,10 @@ services:
       - transaction_data:/var/lib/mysql
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uapp", "-papp"]
-      interval: 5s
+      interval: 10s
       timeout: 5s
-      retries: 5
+      retries: 15
+      start_period: 40s
 
 volumes:
   transaction_data:

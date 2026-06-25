@@ -7,6 +7,7 @@ import com.example.budgeting.infrastructure.persistence.entity.TransactionEntity
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 @Repository
 public class JpaTransactionRepository implements TransactionRepository {
     private final TransactionEntityRepository transactionEntityRepository;
@@ -15,12 +16,10 @@ public class JpaTransactionRepository implements TransactionRepository {
         this.transactionEntityRepository = transactionEntityRepository;
     }
 
-
     @Override
     public Transaction save(Transaction transaction) {
         var entity = TransactionEntity.from(transaction);
         return transactionEntityRepository.save(entity).toDomain();
-
     }
 
     @Override
@@ -29,5 +28,12 @@ public class JpaTransactionRepository implements TransactionRepository {
                 .stream()
                 .map(TransactionEntity::toDomain)
                 .toList();
+    }
+
+    @Override
+    public Long sumAmountByCategory(Category category) {
+        Long sum = transactionEntityRepository.sumAmountByCategory(category);
+
+        return sum != null ? sum : 0L;
     }
 }
