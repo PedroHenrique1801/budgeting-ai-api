@@ -36,6 +36,5 @@ public class TextToSpeechController {
     }
 }
 
-// Este é o objeto que recebe o JSON com o texto da requisição
 record SynthesizeRequest(String text) {
 }

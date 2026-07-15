@@ -157,7 +157,7 @@ async function startRecording() {
         mediaRecorder.start();
         isRecording = true;
 
-        recordBtn.innerText = "Parar Gravação";
+        document.getElementById('recordText').innerText = "Parar Gravação";
         recordBtn.classList.add("recording-pulse");
         recordStatus.innerText = "Gravando áudio...";
 
@@ -170,7 +170,7 @@ function stopRecording() {
     mediaRecorder.stop();
     isRecording = false;
 
-    recordBtn.innerText = "Gravar Áudio";
+    document.getElementById('recordText').innerText = "Gravar Áudio";
     recordBtn.classList.remove("recording-pulse");
 }
 

@@ -29,9 +29,7 @@ public class TransactionController {
     private final PersistTransactionUseCase persistTransactionUseCase;
     private final ListTransactionsByCategoryUseCase listTransactionsByCategoryUseCase;
     private final SumTransactionsByCategoryUseCase sumTransactionsByCategoryUseCase;
-
     private final GetFinancialSummaryUseCase financialSummaryUseCase;
-
     private final TranscriptionModel transcriptionModel;
     private final ChatClient chatClient;
     private final TextToSpeechModel textToSpeechModel;
