@@ -12,7 +12,7 @@ public class ChatClientController {
     private final ChatClient chatClient;
 
     public ChatClientController(ChatClient chatClient) {
-        this.chatClient = chatClient; 
+        this.chatClient = chatClient;
     }
 
     @GetMapping("/chat")
