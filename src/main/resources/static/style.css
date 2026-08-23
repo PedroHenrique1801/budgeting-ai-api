@@ -16,7 +16,11 @@
     --border-radius: 16px;
 }
 
-
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    height: 100vh;
+    overflow: hidden;
 }
 
 .app-container {
