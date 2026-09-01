@@ -1,4 +1,4 @@
-#  ContaAI - Consultor Financeiro Inteligente
+#  ConteAI - Consultor Financeiro Inteligente
 
 Um painel financeiro inteligente e moderno que transforma a maneira como você registra e analisa suas despesas. Desenvolvido com **Inteligência Artificial (OpenAI)** e fundamentado em **Clean Architecture**, o sistema oferece processamento de linguagem natural e RAG para interações financeiras intuitivas.
 
